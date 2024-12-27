@@ -65,7 +65,7 @@ const LeftSide = () => {
 
         {user ? (
           <div className="  h-[406px] overflow-y-scroll p-4 rounded-md flex flex-col gap-4 ">
-            {albumsData.map((item, index) => (
+            {Array.isArray(albumsData) && albumsData.length > 0 && albumsData.map((item, index) => (
               <div
                 onClick={()=>handleAlbum(item._id)}
                 key={index}
