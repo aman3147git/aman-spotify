@@ -1,0 +1,11 @@
+import express from "express";
+import { Google, Login, Logout, Register} from "../controllers/user.js";
+import { verifytoken } from "../utils/verifytoken.js";
+const router=express.Router();
+router.post('/register',Register);
+router.post('/login',Login);
+router.get('/logout',Logout);
+router.post('/google',Google);
+// router.delete('/delete/:userid',verifytoken,Delete);
+// router.post('/update/:userid',verifytoken,Update);
+export default router;
