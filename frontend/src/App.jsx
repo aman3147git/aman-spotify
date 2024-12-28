@@ -10,6 +10,7 @@ import Clickedsong from './pages/Clickedsong'
 import RightSide from './pages/RightSide'
 import Clickedalbum from './pages/Clickedalbum'
 import Search from './components/Search'
+
 const App = () => {
   return (
     <div>
