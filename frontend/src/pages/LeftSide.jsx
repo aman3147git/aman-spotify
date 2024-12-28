@@ -49,10 +49,10 @@ const LeftSide = () => {
           <div className="relative group w-fit">
             <div className="flex gap-2 hover:text-white">
               <BiLibrary className="text-2xl" />
-              <h1 className="font-bold">Your Library</h1>
+              <h1 className="font-bold">All Albums</h1>
             </div>
             <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 whitespace-nowrap px-3 py-1 bg-mycolor text-white text-sm rounded shadow opacity-0 group-hover:opacity-100 transition">
-              Collapse Your Library
+              Collapse All Albums
             </div>
           </div>
           <div className="relative group w-fit">
