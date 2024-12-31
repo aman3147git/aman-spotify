@@ -5,26 +5,16 @@ import Navbar from "../components/Navbar";
 import { Outlet } from "react-router-dom";
 import LeftSide from "./LeftSide";
 import Player from "./Player";
-// import axiosInstance from "../axios";
+
 import { useSelector } from "react-redux";
 import {  Link } from "react-router-dom";
 
 
 const Home = () => {
-  // const [songsData, setSongsData] = useState([]);
+  
   const { user } = useSelector((state) => state.appuser);
 
-  // useEffect(() => {
-  //   fetchSongs();
-  // }, []);
-  // const fetchSongs = async () => {
-  //   try {
-  //     const { data } = await axiosInstance.get("/api/song/get");
-  //     setSongsData(data);
-  //   } catch (err) {
-  //     console.log("Error fetching songs.");
-  //   }
-  // };
+  
 
   return (
     
