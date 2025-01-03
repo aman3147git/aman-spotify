@@ -53,10 +53,7 @@ const Admin = () => {
       for (let key in formData) {
         form.append(key, formData[key]);
       }
-      // if (activeTab === "songs" && !formData.albumId) {
-      //   setError("Please select an album for the song.");
-      //   return;
-      // }
+      
 
       console.log("Submitting Form Data:", [...form.entries()]);
       const endpoint =
@@ -68,14 +65,13 @@ const Admin = () => {
         },
       });
 
-      console.log("Response Data:", res.data);
+      
       if (activeTab === "albums") setAlbumsData((prev) => [...prev, res.data]);
       else setSongsData((prev) => [...prev, res.data]);
       setShowForm(false);
       setFormData({});
     } catch (error) {
-      console.error("Submission Error:", error);
-      console.error("Response 2:", error.response);
+      
       setError(error.response?.data?.message || "Submission failed.");
     }
   };
@@ -129,14 +125,7 @@ const Admin = () => {
             {albumsData.length}
           </p>
         </div>
-        {/* <div className="bg-white shadow-md rounded-lg p-4 flex flex-col items-center">
-          <h2 className="text-lg font-semibold text-gray-700">Total Artists</h2>
-          <p className="text-2xl font-bold text-green-500">2</p>
-        </div>
-        <div className="bg-white shadow-md rounded-lg p-4 flex flex-col items-center">
-          <h2 className="text-lg font-semibold text-gray-700">Total Users</h2>
-          <p className="text-2xl font-bold text-green-500">99</p>
-        </div> */}
+        
       </div>
 
      
