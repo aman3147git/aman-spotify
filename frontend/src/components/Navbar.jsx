@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import { SlSocialSpotify } from "react-icons/sl";
+
 import { GoHome } from "react-icons/go";
 import { IoSearch } from "react-icons/io5";
 import { VscBrowser } from "react-icons/vsc";
@@ -65,7 +65,7 @@ const handleInputChange = (e) => {
 
   return (
     <div className="bg-black flex justify-between items-center">
-      <SlSocialSpotify className="text-white text-3xl ml-7" />
+      <h1 className="text-white text-3xl ml-7 font-bold">Echo<span className="text-green-600">Play</span></h1>
       <div className="flex gap-2 items-center ml-[130px]">
       <button className="flex items-center rounded-full justify-center bg-mycolor p-1">
         <GoHome className="text-white text-4xl p-1 hover:scale-105" />

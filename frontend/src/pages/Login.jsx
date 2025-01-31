@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SlSocialSpotify } from "react-icons/sl";
+
 import { FcGoogle } from "react-icons/fc";
 import { app } from '../firebase';
 import { GoogleAuthProvider,getAuth,signInWithPopup } from "firebase/auth";
@@ -79,9 +79,9 @@ const Login = () => {
       <div className="bg-[#121212] w-[750px] rounded-lg shadow-lg px-8 py-10 my-8">
         
         <div className="flex flex-col items-center mb-8">
-          <Link to="/"><SlSocialSpotify className="text-green-600 text-4xl mb-3" /></Link>
+          <Link to="/"><h1 className="text-4xl mb-3 font-bold text-white">Echo<span className="text-green-600">Play</span></h1></Link>
           
-          <h1 className="text-white font-extrabold text-3xl">Log in to Spotify</h1>
+          <h1 className="text-white font-extrabold text-3xl">Log in to EchoPlay</h1>
         </div>
      
         
@@ -141,7 +141,7 @@ const Login = () => {
         
         
         <div className="text-center text-gray-400 text-md mt-6 font-md ">
-        <Link to="/reset-password" className="text-gray-300 font-bold underline cursor-pointer hover:text-green-600 mb-8">Forgot your password?</Link>
+        
           <p className="mt-6">
             Don't have an account?{" "}
             <Link to="/sign-up" className="text-gray-300 font-bold underline cursor-pointer hover:text-green-600">
