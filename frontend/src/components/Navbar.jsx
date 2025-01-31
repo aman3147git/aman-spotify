@@ -106,7 +106,7 @@ const handleInputChange = (e) => {
             {isopen&&
             (<div className="flex flex-col absolute  bg-mycolor w-40 p-2 mt-1 right-[-0px] shadow-lg gap-3 rounded-lg text-white font-semibold z-10">
               
-              <button className="p-3 hover:bg-[#2A2A2A]">Profile</button>
+              
               <button onClick={logoutHandler} className="p-3 hover:bg-[#2A2A2A]">Logout</button>
             </div>)
             }
