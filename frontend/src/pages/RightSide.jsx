@@ -19,7 +19,7 @@ const RightSide = () => {
 
   if (!user) {
     return (
-      <div className="text-red-700 p-4">
+      <div className="text-red-700 p-6">
         <h2>Please log in to view songs and playlists.</h2>
       </div>
     );

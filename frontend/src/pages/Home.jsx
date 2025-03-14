@@ -39,7 +39,7 @@ const Home = () => {
           <Link to="/sign-up">
             <div className="flex justify-between items-center text-white p-3 bg-gradient-to-r from-pink-600 to-blue-500 m-3">
               <div className="flex flex-col">
-                <h1 className="font-semibold">Preview of Spotify</h1>
+                <h1 className="font-semibold">Preview of EchoPlay</h1>
                 <p>
                   Sign up to get unlimited songs and podcasts with occasional
                   ads.No credit card needed.
