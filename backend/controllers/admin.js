@@ -1,14 +1,14 @@
 import {Song} from "../models/song.js";
 import {Album} from "../models/album.js";
 import cloudinary from "../utils/cloudinary.js";
-import fs from 'fs';
+
 
 const uploadToCloudinary=async(filePath)=>{
     try {
         const result=await cloudinary.uploader.upload(filePath,{
             resource_type:"auto"
         })
-        fs.unlinkSync(filePath);    //delete local tmp file
+        
         return result.secure_url;
     } catch (error) {
         console.log(error);
