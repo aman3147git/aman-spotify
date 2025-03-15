@@ -1,12 +1,14 @@
 import {Song} from "../models/song.js";
 import {Album} from "../models/album.js";
 import cloudinary from "../utils/cloudinary.js";
+import fs from 'fs';
 
 const uploadToCloudinary=async(filePath)=>{
     try {
         const result=await cloudinary.uploader.upload(filePath,{
             resource_type:"auto"
         })
+        fs.unlinkSync(filePath);    //delete local tmp file
         return result.secure_url;
     } catch (error) {
         console.log(error);
@@ -45,7 +47,7 @@ export const deleteSong=async(req,res,next)=>{
         const {id}=req.params;
         const song=await Song.findById(id);
         if(song.albumId){
-            await Album.findbyIdAndUpdate(song.albumId,{
+            await Album.findbyIdAndUpdate(song.albumId,{   //if song is currently in any album then remove from that first
                 $pull:{songs:song._id}
             });
         }
