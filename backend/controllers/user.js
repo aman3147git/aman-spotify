@@ -60,7 +60,7 @@ export const Login=async(req,res)=>{
     const token=jwt.sign({id:user._id,email:user.email},process.env.SECRET_KEY);
 
     return res.status(200).cookie("token",token,{httpOnly:true}).json({
-        message:`Welecome back ${user.fullname}`,
+        message:`Welcome back ${user.fullname}`,
         user,
         success:true
     })
