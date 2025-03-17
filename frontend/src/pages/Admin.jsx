@@ -14,6 +14,7 @@ const Admin = () => {
   const [formData, setFormData] = useState({});
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
 
   useEffect(() => {
@@ -47,6 +48,9 @@ const Admin = () => {
 
   const submithandler = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return; // Prevent multiple clicks
+
+    setIsSubmitting(true);
     setError("");
     try {
       const form = new FormData();
@@ -73,6 +77,8 @@ const Admin = () => {
     } catch (error) {
       
       setError(error.response?.data?.message || "Submission failed.");
+    }finally {
+      setIsSubmitting(false); // Re-enable button after completion
     }
   };
 
@@ -384,7 +390,9 @@ const Admin = () => {
           )}
           <button
             type="submit"
-            className="px-4 py-2 bg-red-700 text-white"
+            className={`px-4 py-2 bg-red-700 rounded-sm text-white ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+            disabled={isSubmitting}
+
           >
             {activeTab === "albums" ? "Add Album" : "Add Song"}
           </button>
