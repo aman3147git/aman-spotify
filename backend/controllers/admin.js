@@ -47,11 +47,11 @@ export const deleteSong=async(req,res,next)=>{
         const {id}=req.params;
         const song=await Song.findById(id);
         if(song.albumId){
-            await Album.findbyIdAndUpdate(song.albumId,{   //if song is currently in any album then remove from that first
+            await Album.findByIdAndUpdate(song.albumId,{   
                 $pull:{songs:song._id}
             });
         }
-            await Song.findbyIdAndDelete(id);
+            await Song.findByIdAndDelete(id);
             res.status(200).json({message:"Song deleted successfully"});
         
     } catch (error) {
