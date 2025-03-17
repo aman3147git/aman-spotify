@@ -25,11 +25,10 @@ const Register = () => {
 
   const submitHandler=async(e)=>{
     e.preventDefault();
-    const {fullname,email,password}=formdata;
-    const user={fullname,email,password};
+    
     try {
       setLoader(true);
-      const res=await axiosInstance.post(`/api/user/register`,user,{
+      const res=await axiosInstance.post(`/api/user/register`,formdata,{
         
         headers:{"Content-Type":"application/json"},
         withCredentials:true
@@ -43,7 +42,7 @@ const Register = () => {
     }finally{
       setLoader(false);
     }
-    setFormdata({fullname:"",email:"",password:""});
+    
   }
   
   const GoogleHandler=async()=>{
