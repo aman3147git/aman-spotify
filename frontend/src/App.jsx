@@ -10,6 +10,7 @@ import Clickedsong from './pages/Clickedsong'
 import RightSide from './pages/RightSide'
 import Clickedalbum from './pages/Clickedalbum'
 import Search from './components/Search'
+import Profile from './pages/Profile'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route index element={<RightSide />} />
           <Route path="song/:id" element={<Clickedsong />} />
           <Route path="album/:id" element={<Clickedalbum />} />
+          <Route path="profile" element={<Profile/>} />
           <Route path="search" element={<Search />} />
           <Route path="search/:query" element={<Search/>} />
         </Route>

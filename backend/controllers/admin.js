@@ -1,6 +1,7 @@
 import {Song} from "../models/song.js";
 import {Album} from "../models/album.js";
 import cloudinary from "../utils/cloudinary.js";
+import { User } from "../models/user.js";
 
 
 const uploadToCloudinary=async(filePath)=>{
@@ -105,4 +106,70 @@ export const checkAdmin = (req, res) => {
         res.status(500).json({ message: "Failed to check admin status." });
     }
 };
+
+export const updateProfile = async (req, res, next) => {
+    try {
+        const { fullname, email, country } = req.body;
+        
+       
+        const user = await User.findById(req.user.id);
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "User not found",
+            });
+        }
+
+       
+        if (req.files && req.files.imageFile) {
+            const { imageFile } = req.files;
+            if (imageFile.tempFilePath) {
+                user.imageUrl = await uploadToCloudinary(imageFile.tempFilePath);
+            }
+        }
+
+        
+
+        await user.save();
+
+        return res.status(200).json({
+            success: true,
+            user: {
+                fullname: user.fullname,
+                email: user.email,
+                country: user.country,
+                imageUrl: user.imageUrl,  
+            },
+            message: "Profile updated successfully",
+        });
+    } catch (error) {
+        console.error("Error updating profile:", error);
+        next(error);
+    }
+};
+
+
+export const getProfile = async (req, res, next) => {
+    try {
+        const user = await User.findById(req.user.id);
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found" });
+        }
+
+        return res.status(200).json({
+            success: true,
+            user: {
+                fullname: user.fullname,
+                email: user.email,
+                country: user.country,
+                imageUrl: user.imageUrl, 
+            },
+        });
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+};
+
+
 

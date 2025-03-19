@@ -61,11 +61,15 @@ const handleInputChange = (e) => {
       navigate('/search/');
   }
 };
+const profilehandler=()=>{
+  navigate('/profile');
+  setIsopen(false);
+}
 
 
   return (
     <div className="bg-black flex justify-between items-center">
-      <h1 className="text-white text-3xl ml-7 font-bold">Echo<span className="text-green-600">Play</span></h1>
+      <h1 className="text-white text-3xl ml-7 font-bold">Echo<span className="text-green-600 font-extrabold">Play</span></h1>
       <div className="flex gap-2 items-center ml-[130px]">
       <button className="flex items-center rounded-full justify-center bg-mycolor p-1">
         <GoHome className="text-white text-4xl p-1 hover:scale-105" />
@@ -108,6 +112,9 @@ const handleInputChange = (e) => {
               
               
               <button onClick={logoutHandler} className="p-3 hover:bg-[#2A2A2A]">Logout</button>
+              <button onClick={profilehandler} className="p-3 hover:bg-[#2A2A2A]">
+              Profile
+              </button>
             </div>)
             }
             </div>
