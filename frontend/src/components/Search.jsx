@@ -10,6 +10,10 @@ const Search=()=>{
     const [results, setResults] = useState([]);
 
     useEffect(() => {
+        if (!query) {
+            navigate("/");
+            return;
+          }
         if (query) {
             const fetchSearchResults = async () => {
                 try {
@@ -35,6 +39,7 @@ const Search=()=>{
 
     const handleResultClick = (item, type) => {
         navigate(`/${type}/${item._id}`);
+        
     };
 
     if (data) {

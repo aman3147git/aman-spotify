@@ -57,6 +57,7 @@ const handleInputChange = (e) => {
   setSearchQuery(value);
   if (value) {
       navigate(`/search/${value}`);
+      
   } else {
       navigate('/search/');
   }

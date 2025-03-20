@@ -119,7 +119,9 @@ export const updateProfile = async (req, res, next) => {
                 message: "User not found",
             });
         }
-
+        if (fullname) user.fullname = fullname;
+        if (email) user.email = email;
+        if (country) user.country = country; 
        
         if (req.files && req.files.imageFile) {
             const { imageFile } = req.files;
@@ -135,7 +137,7 @@ export const updateProfile = async (req, res, next) => {
         return res.status(200).json({
             success: true,
             user: {
-                fullname: user.fullname,
+                fullname: user.fullname,    //sending only these things to frontend from user
                 email: user.email,
                 country: user.country,
                 imageUrl: user.imageUrl,  

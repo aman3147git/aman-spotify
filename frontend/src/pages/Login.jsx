@@ -144,7 +144,7 @@ const Login = () => {
           <p className="mt-6">
             Don't have an account?{" "}
             <Link to="/sign-up" className="text-gray-300 font-bold underline cursor-pointer hover:text-green-600">
-              Sign up for Spotify.
+              Sign up for EchoPlay.
             </Link>
           </p>
         </div>

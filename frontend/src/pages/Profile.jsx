@@ -53,7 +53,7 @@ const Profile = () => {
     e.preventDefault();
     setLoading(true);
 
-    const formData = new FormData();
+    const formData = new FormData();     //using formdata because we are sending file and data both which cant be send in JSON
     formData.append("fullname", formdata.fullname);
     formData.append("email", formdata.email);
     formData.append("country", formdata.country);
@@ -100,16 +100,16 @@ const Profile = () => {
             value={formdata.fullname}
             onChange={changeHandler}
             id="fullname"
-            className="font-semibold text-2xl bg-gray-400 p-2 outline-none focus-visible:ring-transparent"
+            className="font-semibold text-xl bg-[#2A2A2A] text-white p-2 outline-none "
           />
         </div>
       </div>
 
-      <div className="grid md:grid-cols-4 md:gap-2 gap-3 my-10">
+      <div className="grid md:grid-cols-3 md:gap-2 gap-3 my-10">
         <div className="flex items-center gap-4 rounded-sm p-2">
           <CiMail className="text-gray-500 text-3xl" />
           <div className="w-full">
-            <label className="text-white">Email</label>
+            <label className="text-white font-semibold">Email</label>
             <input
               type="email"
               value={formdata.email}
@@ -121,9 +121,9 @@ const Profile = () => {
         </div>
 
         <div className="flex items-center gap-4 rounded-sm p-2">
-          <TbWorld className="text-gray-500 text-3xl" />
+          <TbWorld className="text-gray-500 text-3xl " />
           <div className="w-full">
-            <label className="text-white">Country</label>
+            <label className="text-white font-semibold">Country</label>
             <input
               type="text"
               value={formdata.country}
@@ -137,11 +137,11 @@ const Profile = () => {
 
       <div className="text-center">
         {loading ? (
-          <button disabled className="p-3 bg-orange-700 text-white w-full flex items-center justify-center opacity-50 cursor-not-allowed">
+          <button disabled className="p-3 bg-green-800 text-white w-full flex items-center justify-center opacity-50 cursor-not-allowed">
             <RiLoader4Line className="mr-2 h-4 w-4 animate-spin" /> wait..
           </button>
         ) : (
-          <button type="submit" className="w-full p-3 bg-orange-700 text-white rounded-sm">
+          <button type="submit" className="w-full p-3 bg-green-900 text-white rounded-sm font-extrabold">
             Update
           </button>
         )}
