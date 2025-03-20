@@ -3,7 +3,7 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import ResetPassword from './pages/ResetPassword'
+
 
 import Admin from './pages/Admin'
 import Clickedsong from './pages/Clickedsong'
@@ -29,7 +29,7 @@ const App = () => {
         </Route>
         <Route path="/login" element={<Login/>}/>
         <Route path="/sign-up" element={<Register/>}/>
-        <Route path="/reset-password" element={<ResetPassword/>}/>
+        
         <Route path="/admin" element={<Admin/>}/>
       </Routes>
       </BrowserRouter>

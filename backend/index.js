@@ -43,6 +43,11 @@ app.use('/api/album',albumRoute);
 app.use('/api/song',songRoute);
 app.use('/api/stat',statRoute);
 
+app.use(express.static(path.join(__dirname,"/frontend/dist")));
+app.use("*",(_,res)=>{
+    res.sendFile(path.resolve(__dirname,"frontend","dist","index.html"));
+})
+
 app.listen(process.env.PORT,()=>{
-    console.log("server started on port(:8080");
+    console.log(`Server started on port: ${process.env.PORT}`);
 })

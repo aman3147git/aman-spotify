@@ -12,7 +12,7 @@ const uploadToCloudinary=async(filePath)=>{
         
         return result.secure_url;
     } catch (error) {
-        console.log(error);
+        
         throw new Error("Error uploading to cloudinary");
     }
 }
@@ -38,7 +38,7 @@ export const createSong=async(req,res,next)=>{
         }
         res.status(201).json(song);
     } catch (error) {
-        console.log(error);
+        
         next(error)
     }
 }
@@ -78,7 +78,7 @@ export const createAlbum=async(req,res,next)=>{
         
         res.status(201).json(album);
     } catch (error) {
-        console.log(error);
+        
         next(error)
     }
 }
@@ -102,7 +102,7 @@ export const checkAdmin = (req, res) => {
         
         res.status(200).json({ admin:true });
     } catch (error) {
-        console.error("Error checking admin status:", error);
+        
         res.status(500).json({ message: "Failed to check admin status." });
     }
 };
@@ -145,7 +145,7 @@ export const updateProfile = async (req, res, next) => {
             message: "Profile updated successfully",
         });
     } catch (error) {
-        console.error("Error updating profile:", error);
+        
         next(error);
     }
 };
@@ -168,7 +168,7 @@ export const getProfile = async (req, res, next) => {
             },
         });
     } catch (error) {
-        console.log(error);
+        
         next(error);
     }
 };

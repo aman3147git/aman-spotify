@@ -59,7 +59,7 @@ const Admin = () => {
       }
       
 
-      console.log("Submitting Form Data:", [...form.entries()]);
+      
       const endpoint =
         activeTab === "albums" ? "/api/admin/albums" : "/api/admin/songs";
 

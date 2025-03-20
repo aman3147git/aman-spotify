@@ -29,7 +29,7 @@ export const Register=async(req,res)=>{
         success:true
     })
 }catch(error){
-    console.log(error);
+    return res.status(500).json({ error: "Internal server error" });
 }
 
 }
@@ -65,7 +65,7 @@ export const Login=async(req,res)=>{
         success:true
     })
 }catch(error){
-    console.log(error);
+    return res.status(500).json({ error: "Internal server error" });
 }
 }
 
@@ -75,51 +75,9 @@ export const Logout=(req,res)=>{
         success:true
     })
 }
-// export const Delete=async(req,res)=>{
-//     try {
-//         if(req.user.id!==req.params.userid){
-//             return res.status(401).json({
-//                 message:"id doesn't match",
-//                 success:false
-//             })
-//         }
-//         await User.findByIdAndDelete(req.params.userid);
-//         return res.status(200).json({
-//             message:"Account deleted",
-//             success:true
-//         })  
-//     } catch (error) {
-//         console.log(error);
-//     }
-    
-// }
 
-// export const Update=async(req,res)=>{
-//     try {
-//         if(req.user.id!==req.params.userid){
-//             return res.status(401).json({
-//                 message:"id doesn't match",
-//                 success:false
-//             }) 
-//         }
-//         if(req.body.password){
-//             req.body.password=bcryptjs.hashSync(req.body.password,10); 
-//         }
-//         const updateduser=await User.findByIdAndUpdate(req.params.userid,{
-//             $set:{
-//                 fullname:req.body.fullname,
-//                 email:req.body.email,
-//                 password:req.body.password
 
-//             }
-//         },{new:true});
-//         const {password,...rest}=updateduser._doc;
-//         return res.status(200).json(rest);
-        
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+
 export const Google=async(req,res)=>{
     
     try{
@@ -141,7 +99,7 @@ export const Google=async(req,res)=>{
         return res.status(200).cookie("token",token,{httpOnly:true}).json(rest);
     }
 }catch(error){
-    console.error("Error in Google authentication:", error);
+    
 
         
     return res.status(500).json({ error: "Internal server error" });

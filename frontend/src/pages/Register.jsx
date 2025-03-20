@@ -35,7 +35,7 @@ const Register = () => {
         
       });
       
-      console.log(res);
+      
       navigate('/login');
     } catch (error) {
       console.log(error);
@@ -50,7 +50,7 @@ const Register = () => {
       const provider=new GoogleAuthProvider();
       const auth=getAuth(app);
       const result=await signInWithPopup(auth,provider);
-      console.log(result);
+      
       
       const res=await axiosInstance.post(`/api/user/google`,
         {

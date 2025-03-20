@@ -15,7 +15,7 @@ export const verifytoken=async(req,res,next)=>{
         
          jwt.verify(mytoken,process.env.SECRET_KEY,(err,user)=>{
             if (err) {
-                console.error("Token verification error:", err);
+                
                 return res.status(403).json({
                     message: "Invalid or expired token",
                     success: false,
@@ -27,7 +27,7 @@ export const verifytoken=async(req,res,next)=>{
         });
         
     } catch (error) {
-        console.error("Error in token verification middleware:", error);
+        
         return res.status(500).json({
             message: "Internal server error",
             success: false,

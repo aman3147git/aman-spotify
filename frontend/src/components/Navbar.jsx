@@ -35,7 +35,7 @@ const Navbar = () => {
       setIsadmin(data.admin); 
       
     } catch (err) {
-      console.error("Error fetching admin status:", err);
+      
       setError("Error checking admin status.");
     } finally {
       setLoading(false);

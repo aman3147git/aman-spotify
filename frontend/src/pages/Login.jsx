@@ -33,7 +33,7 @@ const Login = () => {
         withCredentials:true
       })
       
-      console.log(res);
+      
       dispatch(setUser(res.data.user));
       navigate('/');
     } catch (error) {
@@ -49,7 +49,7 @@ const Login = () => {
       const provider=new GoogleAuthProvider();
       const auth=getAuth(app);
       const result=await signInWithPopup(auth,provider);
-      console.log(result);
+      
       
       const res=await axiosInstance.post(`/api/user/google`,
         {

@@ -26,7 +26,7 @@ export const searched = async (req, res) => {
       albums,
     });
   } catch (error) {
-    console.error("Error in search:", error);
+    
     res.status(500).json({ message: "Server Error" });
   }
 };
