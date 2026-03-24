@@ -17,7 +17,7 @@ const Home = () => {
   
 
   return (
-    
+    <>
     {/* h-[100dvh] + overflow-hidden: mobile flex children get a real height so main panel can scroll */}
     <div className="flex h-[100dvh] min-h-0 flex-col overflow-hidden bg-black md:h-auto md:min-h-dvh md:overflow-visible">
       <Navbar />
@@ -54,7 +54,7 @@ const Home = () => {
         </div>
       )}
     </div>
-    
+    </>
   );
 };
 
