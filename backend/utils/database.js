@@ -6,7 +6,8 @@ try {
   await mongoose.connect(process.env.MONGO);
   console.log("Database connected!!"); 
 } catch (error) {
-  return res.status(500).json({ error: "Internal server error" });
+  console.error("Database connection failed:", error?.message || error);
+  process.exit(1);
 }
 }
 export default db;
