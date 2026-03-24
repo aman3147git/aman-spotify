@@ -44,12 +44,12 @@ const LeftSide = () => {
   }
   return (
     
-      <div className="mx-0 flex min-h-0 w-full shrink-0 flex-col overflow-hidden rounded-lg bg-mycolor max-h-[min(50vh,440px)] md:mx-2 md:h-full md:max-h-none md:w-[285px]">
-        <div className="flex shrink-0 items-center justify-between p-4 text-gray-400 sm:p-5">
+      <div className="mx-0 flex min-h-0 w-full shrink-0 flex-col overflow-hidden rounded-lg bg-mycolor max-h-[min(30vh,200px)] sm:max-h-[min(34vh,240px)] md:mx-2 md:h-full md:max-h-none md:w-[285px]">
+        <div className="flex shrink-0 items-center justify-between px-3 py-2 text-gray-400 sm:px-4 sm:py-3 md:p-5">
           <div className="relative group w-fit">
-            <div className="flex gap-2 hover:text-white">
-              <BiLibrary className="text-2xl" />
-              <h1 className="font-bold">All Albums</h1>
+            <div className="flex items-center gap-1.5 hover:text-white sm:gap-2">
+              <BiLibrary className="text-xl sm:text-2xl" />
+              <h1 className="text-sm font-bold sm:text-base">All Albums</h1>
             </div>
             <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 whitespace-nowrap px-3 py-1 bg-mycolor text-white text-sm rounded shadow opacity-0 group-hover:opacity-100 transition">
               Collapse All Albums
@@ -64,31 +64,31 @@ const LeftSide = () => {
         </div>
 
         {user ? (
-          <div className="scroll-thin-brown flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto overscroll-contain p-4 md:h-[406px] md:flex-none md:overflow-y-scroll">
+          <div className="scroll-thin-brown flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto overscroll-contain px-2 py-2 sm:gap-3 sm:p-3 md:h-[406px] md:flex-none md:gap-4 md:overflow-y-scroll md:p-4">
             {Array.isArray(albumsData) && albumsData.length > 0 && albumsData.map((item, index) => (
               <div
                 onClick={()=>handleAlbum(item._id)}
                 key={index}
-                className=" flex gap-2 hover:bg-[#2A2A2A] rounded-md"
+                className="flex gap-2 rounded-md hover:bg-[#2A2A2A]"
               >
-                <img src={item.imageUrl} className="h-16 w-16 rounded-lg" alt="" />
-                <div className="flex flex-col gap-1">
-                <h1 className="font-lg text-white mt-2">{item.title}</h1>
-                <p className=" text-gray-400 text-sm">{item.artist}</p>
+                <img src={item.imageUrl} className="h-11 w-11 shrink-0 rounded-md object-cover sm:h-14 sm:w-14 md:h-16 md:w-16 md:rounded-lg" alt="" />
+                <div className="flex min-w-0 flex-col gap-0.5">
+                <h2 className="truncate text-sm font-semibold text-white sm:text-base md:mt-2">{item.title}</h2>
+                <p className="truncate text-xs text-gray-400 sm:text-sm">{item.artist}</p>
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <div className="scroll-thin-brown flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto overscroll-contain p-4 md:h-[406px] md:flex-none md:overflow-y-scroll">
+          <div className="scroll-thin-brown flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto overscroll-contain px-2 py-2 sm:gap-4 sm:p-3 md:h-[406px] md:flex-none md:gap-6 md:overflow-y-scroll md:p-4">
             {list.map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col rounded-lg bg-[#313131]  p-4 "
+                className="flex flex-col rounded-lg bg-[#313131] p-2.5 sm:p-3 md:p-4"
               >
-                <h1 className="mt-2 font-bold text-white">{item.title}</h1>
-                <p className="font-md text-sm text-white">{item.description}</p>
-                <button className="my-2 rounded-full bg-white py-2 font-semibold text-black hover:scale-105">
+                <h2 className="mt-1 text-sm font-bold text-white sm:text-base md:mt-2">{item.title}</h2>
+                <p className="text-xs text-white sm:text-sm">{item.description}</p>
+                <button type="button" className="my-1.5 rounded-full bg-white py-1.5 text-xs font-semibold text-black hover:scale-105 sm:my-2 sm:py-2 sm:text-sm">
                   {item.press}
                 </button>
               </div>

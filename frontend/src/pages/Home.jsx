@@ -18,10 +18,11 @@ const Home = () => {
 
   return (
     
-    <div className="bg-black min-h-dvh flex flex-col">
+    {/* h-[100dvh] + overflow-hidden: mobile flex children get a real height so main panel can scroll */}
+    <div className="flex h-[100dvh] min-h-0 flex-col overflow-hidden bg-black md:h-auto md:min-h-dvh md:overflow-visible">
       <Navbar />
       {/* md: fixed 470px row = internal vertical scroll in sidebar + main (original behavior) */}
-      <div className="flex min-h-0 flex-1 flex-col gap-2 px-2 pb-2 md:h-[470px] md:flex-none md:flex-row md:px-2">
+      <div className="flex min-h-0 flex-1 flex-col gap-2 overflow-hidden px-2 pb-2 md:h-[470px] md:flex-none md:flex-row md:overflow-visible md:px-2">
         <LeftSide />
 
         <div className="scroll-thin-brown min-h-0 flex-1 overflow-y-auto overscroll-contain rounded-lg bg-mycolor md:mr-2 md:h-full md:flex-1">
