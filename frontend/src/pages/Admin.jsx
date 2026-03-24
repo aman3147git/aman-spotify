@@ -170,7 +170,7 @@ const Admin = () => {
 
       
       {activeTab === "albums" && (
-        <div className="w-full max-w-3xl overflow-x-auto rounded shadow-md">
+        <div className="scroll-thin-brown w-full max-w-3xl overflow-x-auto rounded shadow-md">
         <table className="w-full min-w-[640px] bg-gray-400">
           <thead className="bg-green-900 text-white">
             <tr>
@@ -212,7 +212,7 @@ const Admin = () => {
       )}
 
       {activeTab === "songs" && (
-        <div className="w-full max-w-3xl overflow-x-auto rounded shadow-md">
+        <div className="scroll-thin-brown w-full max-w-3xl overflow-x-auto rounded shadow-md">
         <table className="w-full min-w-[640px] bg-gray-400">
           <thead className="bg-green-900 text-white">
             <tr>
@@ -258,7 +258,7 @@ const Admin = () => {
         <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/60 p-4">
         <form
           onSubmit={submithandler}
-          className="mt-0 max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded bg-white p-4 shadow-md sm:p-6"
+          className="scroll-thin-brown mt-0 max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded bg-white p-4 shadow-md sm:p-6"
         >
           <div className="relative">
           <button type="button" className="absolute right-0 top-0 text-3xl" onClick={()=>setShowForm(false)}><MdCancelPresentation/></button>
@@ -407,7 +407,7 @@ const Admin = () => {
       
       {showDeletePopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800/50 p-4">
-          <div className="max-h-[90vh] w-full max-w-md overflow-y-auto rounded bg-white p-6 shadow-md">
+          <div className="scroll-thin-brown max-h-[90vh] w-full max-w-md overflow-y-auto rounded bg-white p-6 shadow-md">
             <h2 className="text-xl mb-4">
               Are you sure you want to delete this item?
             </h2>

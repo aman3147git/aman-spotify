@@ -64,7 +64,7 @@ const LeftSide = () => {
         </div>
 
         {user ? (
-          <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto overscroll-contain p-4 md:h-[406px] md:flex-none md:overflow-y-scroll">
+          <div className="scroll-thin-brown flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto overscroll-contain p-4 md:h-[406px] md:flex-none md:overflow-y-scroll">
             {Array.isArray(albumsData) && albumsData.length > 0 && albumsData.map((item, index) => (
               <div
                 onClick={()=>handleAlbum(item._id)}
@@ -80,7 +80,7 @@ const LeftSide = () => {
             ))}
           </div>
         ) : (
-          <div className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto overscroll-contain p-4 md:h-[406px] md:flex-none md:overflow-y-scroll">
+          <div className="scroll-thin-brown flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto overscroll-contain p-4 md:h-[406px] md:flex-none md:overflow-y-scroll">
             {list.map((item, index) => (
               <div
                 key={index}
@@ -93,41 +93,36 @@ const LeftSide = () => {
                 </button>
               </div>
             ))}
-            <div className="mx-2 flex flex-col text-gray-300">
-              <div className="flex gap-2">
+            <div className="mx-1 mt-5 flex flex-col gap-2 text-gray-300 md:mt-3 md:gap-1">
+              <div className="flex flex-wrap gap-x-2 gap-y-1">
                 <Link
                   to="https://www.spotify.com/in-en/legal/end-user-agreement/"
-                  className="text-sm text-gray-400"
+                  className="text-xs text-gray-400 hover:underline md:text-[10px]"
                 >
                   Legal
                 </Link>
-                <Link to="" className="text-sm text-gray-400">
-                  Safety&Privacy Center
+                <Link to="" className="text-xs text-gray-400 hover:underline md:text-[10px]">
+                  Safety & Privacy
                 </Link>
-              </div>
-              <br />
-              <div className="flex gap-2">
-                <Link to="" className="text-sm text-gray-400">
+                <Link to="" className="text-xs text-gray-400 hover:underline md:text-[10px]">
                   Privacy Policy
                 </Link>
-                <Link to="" className="text-sm text-gray-400">
+                <Link to="" className="text-xs text-gray-400 hover:underline md:text-[10px]">
                   Cookies
                 </Link>
-                <Link to="" className="text-sm text-gray-400">
+                <Link to="" className="text-xs text-gray-400 hover:underline md:text-[10px]">
                   About Ads
                 </Link>
+                <Link to="" className="text-xs text-gray-400 hover:underline md:text-[10px]">
+                  Accessibility
+                </Link>
+                <Link
+                  to="https://www.spotify.com/in-en/legal/cookies-policy/"
+                  className="text-xs text-white hover:underline md:text-[10px]"
+                >
+                  Cookie settings
+                </Link>
               </div>
-              <br />
-              <Link to="" className="text-sm text-gray-400">
-                Accessibility
-              </Link>
-              <br />
-              <Link
-                to="https://www.spotify.com/in-en/legal/cookies-policy/"
-                className="text-sm text-white hover:underline"
-              >
-                Cookies
-              </Link>
             </div>
           </div>
         )}

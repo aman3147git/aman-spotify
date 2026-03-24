@@ -80,7 +80,7 @@ const Clickedalbum = () => {
           <div className="bg-gradient-to-bl from-white to-gray-600 p-4 sm:p-5">
             <h2 className="mb-4 text-xl font-bold sm:text-2xl">Songs</h2>
             {album.songs && album.songs.length > 0 ? (
-              <div className="-mx-4 overflow-x-auto sm:mx-0">
+              <div className="scroll-thin-brown -mx-4 overflow-x-auto sm:mx-0">
               <table className="w-full min-w-[480px] text-left">
                 <thead>
                   <tr className="border-b border-gray-700">

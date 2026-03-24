@@ -10,3 +10,28 @@
     @apply overflow-x-hidden;
   }
 }
+
+/* Very thin brown scrollbar; WebKit: thumb hidden until hover on the scroll area. Firefox: thin + muted brown. */
+@layer utilities {
+  .scroll-thin-brown {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(121, 85, 72, 0.45) transparent;
+  }
+  .scroll-thin-brown::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  .scroll-thin-brown::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scroll-thin-brown::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 9999px;
+  }
+  .scroll-thin-brown:hover::-webkit-scrollbar-thumb {
+    background-color: rgb(115, 80, 60);
+  }
+  .scroll-thin-brown::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(92, 60, 40);
+  }
+}
