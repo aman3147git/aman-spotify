@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
 
 
@@ -18,34 +18,31 @@ const Home = () => {
 
   return (
     
-    <div className="bg-black min-h-screen flex flex-col">
+    <div className="bg-black min-h-dvh flex flex-col">
       <Navbar />
-      <div className="flex h-[470px] justify-between">
+      <div className="flex flex-1 flex-col min-h-0 gap-2 px-2 pb-2 md:flex-row md:px-2">
         <LeftSide />
 
-        <div className=" h-[470px] overflow-y-auto bg-mycolor rounded-lg mr-2 flex-1">
-        
-            
+        <div className="min-h-[240px] flex-1 overflow-y-auto overscroll-contain rounded-lg bg-mycolor md:mr-2 md:min-h-0">
         <Outlet context={{ user }} />
-            
         </div>
       </div>
       {user ? (
-        <div className=" h-[90px] text-white">
+        <div className="shrink-0 text-white">
           <Player />
         </div>
       ) : (
-        <div className="h-[90px] ">
+        <div className="shrink-0">
           <Link to="/sign-up">
-            <div className="flex justify-between items-center text-white p-3 bg-gradient-to-r from-pink-600 to-blue-500 m-3">
-              <div className="flex flex-col">
+            <div className="m-2 flex flex-col gap-3 rounded-lg bg-gradient-to-r from-pink-600 to-blue-500 p-4 text-white sm:m-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+              <div className="flex min-w-0 flex-col gap-1">
                 <h1 className="font-semibold">Preview of EchoPlay</h1>
-                <p>
+                <p className="text-sm sm:text-base">
                   Sign up to get unlimited songs and podcasts with occasional
-                  ads.No credit card needed.
+                  ads. No credit card needed.
                 </p>
               </div>
-              <button className="text-black p-3 bg-white rounded-full font-semibold hover:scale-105">
+              <button type="button" className="shrink-0 rounded-full bg-white px-5 py-3 text-center font-semibold text-black hover:scale-105">
                 Sign up free
               </button>
             </div>

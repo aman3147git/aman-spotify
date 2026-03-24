@@ -69,69 +69,126 @@ const profilehandler=()=>{
 
 
   return (
-    <div className="bg-black flex justify-between items-center">
-      <h1 className="text-white text-3xl ml-7 font-bold">Echo<span className="text-green-600 font-extrabold">Play</span></h1>
-      <div className="flex gap-2 items-center ml-[130px]">
-      <button className="flex items-center rounded-full justify-center bg-mycolor p-1">
-        <GoHome className="text-white text-4xl p-1 hover:scale-105" />
-        </button>
-        
-        <div className="flex gap-[190px]  items-center p-2 rounded-full bg-mycolor hover:border border-gray-600 hover:bg-[#212121] w-full">
-          <div className="flex gap-3 items-center w-full">
-            <IoSearch className="text-gray-400 text-3xl" />
+    <header className="z-30 shrink-0 border-b border-white/10 bg-black">
+      <div className="flex flex-col gap-3 px-3 py-3 sm:px-4 md:flex-row md:items-center md:gap-4 md:py-2 lg:px-6">
+        <div className="flex items-center justify-between gap-3 md:min-w-0 md:max-w-[200px] lg:max-w-none">
+          <Link to="/" className="min-w-0 shrink-0" onClick={() => setIsopen(false)}>
+            <h1 className="text-2xl font-bold text-white md:text-3xl">
+              Echo<span className="font-extrabold text-green-600">Play</span>
+            </h1>
+          </Link>
+          <div className="flex items-center gap-2 md:hidden">
+            {user ? (
+              <>
+                {isadmin && !loading && !error && (
+                  <Link to="/admin" className="text-sm font-bold text-gray-400 hover:scale-105">
+                    Dashboard
+                  </Link>
+                )}
+                <div className="relative">
+                  <img
+                    onClick={() => setIsopen(!isopen)}
+                    src={user.avatar}
+                    alt=""
+                    className="h-9 w-9 cursor-pointer rounded-full border-2 border-orange-600 hover:scale-105 sm:h-10 sm:w-10"
+                  />
+                  {isopen && (
+                    <div className="absolute right-0 z-50 mt-2 flex w-40 flex-col gap-1 rounded-lg bg-mycolor p-2 text-sm font-semibold text-white shadow-lg">
+                      <button type="button" onClick={logoutHandler} className="rounded-md p-3 text-left hover:bg-[#2A2A2A]">
+                        Logout
+                      </button>
+                      <button type="button" onClick={profilehandler} className="rounded-md p-3 text-left hover:bg-[#2A2A2A]">
+                        Profile
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </>
+            ) : (
+              <>
+                <Link to="/sign-up" className="text-sm font-bold text-gray-400 hover:text-white">
+                  Sign up
+                </Link>
+                <Link
+                  to="/login"
+                  className="rounded-full bg-white px-4 py-2 text-sm font-bold text-black hover:scale-105"
+                >
+                  Log in
+                </Link>
+              </>
+            )}
+          </div>
+        </div>
+
+        <div className="flex min-w-0 flex-1 items-center gap-2 md:max-w-2xl md:justify-center lg:mx-4 lg:max-w-3xl">
+          <Link
+            to="/"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-mycolor hover:border hover:border-gray-600 md:h-11 md:w-11"
+            onClick={() => setIsopen(false)}
+            aria-label="Home"
+          >
+            <GoHome className="text-2xl text-white hover:scale-105 md:text-4xl md:p-1" />
+          </Link>
+
+          <div className="flex min-w-0 flex-1 items-center gap-2 rounded-full bg-mycolor p-2 hover:border hover:border-gray-600 md:p-2.5">
+            <IoSearch className="shrink-0 text-2xl text-gray-400 md:text-3xl" />
             <input
-              type="text"
-              className=" bg-transparent outline-none w-full text-white"
+              type="search"
+              className="w-full min-w-0 bg-transparent text-sm text-white caret-white outline-none placeholder:text-gray-500 sm:text-base"
               placeholder="What do you want to play?"
               value={searchQuery}
               onChange={handleInputChange}
             />
-          </div>
-          <div className="flex gap-4">
-            <div className="h-6 w-px bg-gray-500"></div>
-            <VscBrowser className="text-gray-400 h-6 w-6" />
-          </div>
-        </div>
-        
-        </div>
-      
-
-      <div className="flex gap-4">
-        {user ? (
-          <>
-            
-            {isadmin && !loading && !error && (
-              <button className="font-bold hover:scale-105 text-gray-400">
-                <Link to="/admin">Dashboard</Link>
-              </button>
-            )}
-            <div className="relative">
-              <img onClick={()=>setIsopen(!isopen)} src={user.avatar} alt="A" className="rounded-full m-4 h-8 w-8  border-orange-600 border-4 hover:scale-105" />
-            
-            {isopen&&
-            (<div className="flex flex-col absolute  bg-mycolor w-40 p-2 mt-1 right-[-0px] shadow-lg gap-3 rounded-lg text-white font-semibold z-10">
-              
-              
-              <button onClick={logoutHandler} className="p-3 hover:bg-[#2A2A2A]">Logout</button>
-              <button onClick={profilehandler} className="p-3 hover:bg-[#2A2A2A]">
-              Profile
-              </button>
-            </div>)
-            }
+            <div className="hidden items-center gap-3 sm:flex">
+              <div className="hidden h-6 w-px bg-gray-500 md:block" />
+              <VscBrowser className="hidden h-6 w-6 shrink-0 text-gray-400 md:block" />
             </div>
-          </>
-        ) : (
-          <>
-            <button className="font-bold hover:scale-105 text-gray-400">
-              <Link to="/sign-up">Sign up</Link>
-            </button>
-            <button className="rounded-full px-8 py-3 m-2 bg-white text-black font-bold hover:scale-105">
-              <Link to="/login">Log in</Link>
-            </button>
-          </>
-        )}
+          </div>
+        </div>
+
+        <div className="hidden items-center justify-end gap-3 md:flex md:shrink-0 lg:gap-4">
+          {user ? (
+            <>
+              {isadmin && !loading && !error &&
+                <Link to="/admin" className="whitespace-nowrap text-sm font-bold text-gray-400 hover:scale-105 hover:text-white lg:text-base">
+                  Dashboard
+                </Link>
+              }
+              <div className="relative">
+                <img
+                  onClick={() => setIsopen(!isopen)}
+                  src={user.avatar}
+                  alt=""
+                  className="h-9 w-9 cursor-pointer rounded-full border-4 border-orange-600 hover:scale-105"
+                />
+                {isopen && (
+                  <div className="absolute right-0 z-50 mt-2 flex w-40 flex-col gap-1 rounded-lg bg-mycolor p-2 font-semibold text-white shadow-lg">
+                    <button type="button" onClick={logoutHandler} className="rounded-md p-3 text-left hover:bg-[#2A2A2A]">
+                      Logout
+                    </button>
+                    <button type="button" onClick={profilehandler} className="rounded-md p-3 text-left hover:bg-[#2A2A2A]">
+                      Profile
+                    </button>
+                  </div>
+                )}
+              </div>
+            </>
+          ) : (
+            <>
+              <Link to="/sign-up" className="whitespace-nowrap font-bold text-gray-400 hover:scale-105 hover:text-white">
+                Sign up
+              </Link>
+              <Link
+                to="/login"
+                className="rounded-full bg-white px-6 py-2.5 font-bold text-black hover:scale-105"
+              >
+                Log in
+              </Link>
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </header>
   );
 };
 

@@ -51,27 +51,28 @@ const Clickedsong = () => {
     <div className="bg-[#2A2A2A]">
       {currentSong ? (
         <div className="flex flex-col">
-          <div className="flex h-[220px] bg-gradient-to-r from-green-900 to-slate-300">
-            <div className="pl-5 pt-12 flex gap-3">
-              <div className="">
+          <div className="min-h-0 bg-gradient-to-r from-green-900 to-slate-300 px-4 pb-8 pt-8 sm:min-h-[220px] sm:px-6 sm:pb-12 sm:pt-12">
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:gap-6">
+              <div className="shrink-0">
                 <img
                   src={currentSong.imageUrl}
                   alt={currentSong.artist}
-                  className="w-[170px] h-[170px] object-cover rounded-lg hover:scale-105"
+                  className="h-36 w-36 rounded-lg object-cover shadow-lg hover:scale-105 sm:h-[170px] sm:w-[170px]"
                 />
               </div>
-              <div className="">
-                <h1 className="text-white text-6xl font-bold mt-14">
+              <div className="min-w-0 flex-1 sm:mt-10">
+                <h1 className="break-words text-3xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
                   {currentSong.title}
                 </h1>
-                <div className="flex gap-1">
-                <p className="text-white text-lg mt-2">{currentSong.artist} .</p>
-                <p className="text-white text-lg mt-2"> {currentSong.duration}</p>
+                <div className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                <p className="text-base text-white sm:text-lg">{currentSong.artist}</p>
+                <span className="hidden text-white sm:inline">·</span>
+                <p className="text-base text-white/90 sm:text-lg">{currentSong.duration}</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className=" p-5">
+          <div className="p-4 sm:p-5">
             <button
               onClick={handlePlayPause}
               className=" bg-green-500 flex items-center justify-center rounded-full h-14 w-14 opacity-100 transition-opacity hover:scale-105"

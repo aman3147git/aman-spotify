@@ -112,12 +112,12 @@ const Admin = () => {
     setDeleteId(null);
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  if (loading) return <div className="flex min-h-dvh items-center justify-center bg-mycolor p-4 text-white">Loading...</div>;
+  if (error) return <div className="flex min-h-dvh items-center justify-center bg-mycolor p-4 text-center text-red-300">{error}</div>;
 
   return (
-    <div className="min-h-screen bg-mycolor flex flex-col items-center p-6">
-      <Link to="/" className="text-3xl font-bold mb-6 text-white">Control Room</Link>
+    <div className="flex min-h-dvh flex-col items-center bg-mycolor p-4 sm:p-6">
+      <Link to="/" className="mb-4 text-center text-2xl font-bold text-white sm:mb-6 sm:text-3xl">Control Room</Link>
 
       
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 w-full max-w-5xl">
@@ -170,7 +170,8 @@ const Admin = () => {
 
       
       {activeTab === "albums" && (
-        <table className="w-full max-w-3xl bg-gray-400 shadow-md rounded">
+        <div className="w-full max-w-3xl overflow-x-auto rounded shadow-md">
+        <table className="w-full min-w-[640px] bg-gray-400">
           <thead className="bg-green-900 text-white">
             <tr>
               <th className="p-2">Thumbnail</th>
@@ -207,10 +208,12 @@ const Admin = () => {
             ))}
           </tbody>
         </table>
+        </div>
       )}
 
       {activeTab === "songs" && (
-        <table className="w-full max-w-3xl bg-gray-400 shadow-md rounded">
+        <div className="w-full max-w-3xl overflow-x-auto rounded shadow-md">
+        <table className="w-full min-w-[640px] bg-gray-400">
           <thead className="bg-green-900 text-white">
             <tr>
               <th className="p-2">Thumbnail</th>
@@ -247,17 +250,18 @@ const Admin = () => {
             ))}
           </tbody>
         </table>
+        </div>
       )}
 
       
       {showForm && (
-        <div className="fixed inset-0 flex items-center justify-center">
+        <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/60 p-4">
         <form
           onSubmit={submithandler}
-          className="mt-6 w-full max-w-3xl p-6 bg-white shadow-md rounded"
+          className="mt-0 max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded bg-white p-4 shadow-md sm:p-6"
         >
           <div className="relative">
-          <button className="text-3xl right-0  absolute " onClick={()=>setShowForm(false)}><MdCancelPresentation/></button>
+          <button type="button" className="absolute right-0 top-0 text-3xl" onClick={()=>setShowForm(false)}><MdCancelPresentation/></button>
           </div>
           <div className="mb-4 ">
             
@@ -402,8 +406,8 @@ const Admin = () => {
 
       
       {showDeletePopup && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-          <div className="bg-white p-6 rounded shadow-md">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800/50 p-4">
+          <div className="max-h-[90vh] w-full max-w-md overflow-y-auto rounded bg-white p-6 shadow-md">
             <h2 className="text-xl mb-4">
               Are you sure you want to delete this item?
             </h2>

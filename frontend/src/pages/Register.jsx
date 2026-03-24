@@ -74,20 +74,20 @@ const Register = () => {
 }
   }
   return (
-    <div className="bg-[#121212] min-h-screen flex justify-center items-center">
-      <div className=" rounded-lg shadow-lg px-8 py-10 my-4">
+    <div className="flex min-h-dvh items-center justify-center bg-[#121212] px-4 py-8">
+      <div className="my-4 w-full max-w-lg rounded-lg px-5 py-8 shadow-lg sm:px-8 sm:py-10">
         
-        <div className="flex flex-col items-center mb-8">
-        <Link to="/"><h1 className="text-4xl mb-3 font-bold text-white">Echo<span className="text-green-600">Play</span></h1></Link>
+        <div className="mb-8 flex flex-col items-center text-center">
+        <Link to="/"><h1 className="mb-3 text-3xl font-bold text-white sm:text-4xl">Echo<span className="text-green-600">Play</span></h1></Link>
           
-          <h1 className="text-white font-bold text-5xl">Sign up to</h1>
-          <h1 className="text-white font-bold text-5xl">start listening</h1>
+          <h2 className="text-3xl font-bold text-white sm:text-5xl">Sign up to</h2>
+          <h2 className="text-3xl font-bold text-white sm:text-5xl">start listening</h2>
         </div>
 
         <form className="mb-10" onSubmit={submitHandler}>
-          <div className="flex flex-col gap-4 mb-6 ">
-          <div className="flex flex-col ">
-              <label className="text-white text-sm font-bold">
+          <div className="mb-6 flex flex-col gap-4">
+          <div className="mx-auto flex w-full max-w-[340px] flex-col">
+              <label htmlFor="fullname" className="text-sm font-bold text-white">
                 Fullname
               </label>
               <input
@@ -95,11 +95,11 @@ const Register = () => {
                 id="fullname"
                 placeholder="Full Name"
                 onChange={handlechange} value={formdata.fullname}
-                className="w-[340px] mt-2 px-4 py-3 bg-transparent  text-white rounded border border-gray-400 hover:border-white focus:outline-none focus:ring-1 focus:ring-white"
+                className="mt-2 w-full rounded border border-gray-400 bg-transparent px-4 py-3 text-white hover:border-white focus:outline-none focus:ring-1 focus:ring-white"
               />
             </div>
-            <div className="flex flex-col ">
-              <label className="text-white text-sm font-bold">
+            <div className="mx-auto flex w-full max-w-[340px] flex-col">
+              <label htmlFor="email" className="text-sm font-bold text-white">
                 Email address
               </label>
               <input
@@ -107,11 +107,11 @@ const Register = () => {
                 id="email"
                 placeholder="name@domain.com"
                 onChange={handlechange} value={formdata.email}
-                className="w-[340px] mt-2 px-4 py-3 bg-transparent  text-white rounded border border-gray-400 hover:border-white focus:outline-none focus:ring-1 focus:ring-white"
+                className="mt-2 w-full rounded border border-gray-400 bg-transparent px-4 py-3 text-white hover:border-white focus:outline-none focus:ring-1 focus:ring-white"
               />
             </div>
-            <div className="flex flex-col ">
-              <label className="text-white text-sm font-bold">
+            <div className="mx-auto flex w-full max-w-[340px] flex-col">
+              <label htmlFor="password" className="text-sm font-bold text-white">
                 Password
               </label>
               <div className="relative">
@@ -120,9 +120,9 @@ const Register = () => {
                 id="password"
                 placeholder="Password"
                 onChange={handlechange} value={formdata.password}
-                className="w-[340px] mt-2 px-4 py-3 bg-transparent text-white rounded border border-gray-400 hover:border-white focus:outline-none focus:ring-1 focus:ring-white"
+                className="mt-2 w-full rounded border border-gray-400 bg-transparent px-4 py-3 pr-12 text-white hover:border-white focus:outline-none focus:ring-1 focus:ring-white"
               />
-              <button className='absolute inset-y-5 right-2 text-gray-300 hover:text-white text-2xl hover:scale-105' type='button' onClick={()=>setPasstype(passtype==='password'?'text':'password')}>{passtype==='password'?<FaLock/>:<FaLockOpen/>}</button>
+              <button className="absolute bottom-2 right-2 text-2xl text-gray-300 hover:scale-105 hover:text-white" type="button" onClick={()=>setPasstype(passtype==='password'?'text':'password')}>{passtype==='password'?<FaLock/>:<FaLockOpen/>}</button>
               
               </div>
             </div>
@@ -130,7 +130,7 @@ const Register = () => {
           </div>
 
           <div className="flex items-center justify-center">
-          <button className=" w-[340px] text-black font-bold px-4 py-3 bg-green-500 rounded-full hover:bg-green-400 ">
+          <button type="submit" className="w-full max-w-[340px] rounded-full bg-green-500 px-4 py-3 font-bold text-black hover:bg-green-400">
             Submit
           </button>
           </div>
@@ -139,14 +139,14 @@ const Register = () => {
         
 
         
-        <div className="flex items-center gap-4 text-white mb-10">
-          <hr className="border-t border-gray-700 flex-1" />
-          or
-          <hr className="border-t border-gray-700 flex-1" />
+        <div className="mb-10 flex items-center gap-4 text-white">
+          <hr className="flex-1 border-t border-gray-700" />
+          <span className="shrink-0 text-sm text-gray-400">or</span>
+          <hr className="flex-1 border-t border-gray-700" />
         </div> 
           
-        <div className="flex flex-col gap-3 mb-10 items-center justify-center">
-          <button onClick={GoogleHandler} className="w-[340px] text-white font-bold px-4 py-3 border border-gray-400 rounded-full flex items-center justify-center gap-12 hover:border-white">
+        <div className="mb-10 flex flex-col items-center justify-center gap-3">
+          <button type="button" onClick={GoogleHandler} className="flex w-full max-w-[340px] items-center justify-center gap-4 rounded-full border border-gray-400 px-4 py-3 font-bold text-white hover:border-white sm:gap-12">
             <FcGoogle className="text-2xl" />
             Continue with Google
           </button>

@@ -44,8 +44,8 @@ const LeftSide = () => {
   }
   return (
     
-      <div className="bg-mycolor rounded-lg w-[285px] mx-2 h-[470px]">
-        <div className="text-gray-400 flex justify-between p-5 items-center">
+      <div className="mx-0 flex max-h-[42vh] w-full shrink-0 flex-col overflow-hidden rounded-lg bg-mycolor md:mx-2 md:h-[calc(100dvh-11.5rem)] md:max-h-none md:w-[285px]">
+        <div className="flex flex-shrink-0 items-center justify-between p-4 text-gray-400 sm:p-5">
           <div className="relative group w-fit">
             <div className="flex gap-2 hover:text-white">
               <BiLibrary className="text-2xl" />
@@ -64,7 +64,7 @@ const LeftSide = () => {
         </div>
 
         {user ? (
-          <div className="  h-[406px] overflow-y-scroll p-4 rounded-md flex flex-col gap-4 ">
+          <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto overscroll-contain p-4">
             {Array.isArray(albumsData) && albumsData.length > 0 && albumsData.map((item, index) => (
               <div
                 onClick={()=>handleAlbum(item._id)}
@@ -80,7 +80,7 @@ const LeftSide = () => {
             ))}
           </div>
         ) : (
-          <div className=" h-48 overflow-y-scroll p-4 rounded-md flex flex-col gap-6">
+          <div className="flex max-h-48 flex-col gap-6 overflow-y-auto overscroll-contain p-4 sm:max-h-none">
             {list.map((item, index) => (
               <div
                 key={index}

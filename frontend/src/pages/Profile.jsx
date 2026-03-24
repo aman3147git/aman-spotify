@@ -77,10 +77,10 @@ const Profile = () => {
   };
 
   return (
-    <form onSubmit={submitHandler} className="max-w-7xl mx-auto my-5 p-3">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="relative md:h-28 md:w-28 h-20 w-20">
+    <form onSubmit={submitHandler} className="mx-auto my-4 max-w-7xl p-3 sm:my-5 sm:p-4">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex min-w-0 flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-4">
+          <div className="relative h-24 w-24 shrink-0 sm:h-28 sm:w-28">
             <img 
               src={selectedpic} 
               
@@ -100,12 +100,12 @@ const Profile = () => {
             value={formdata.fullname}
             onChange={changeHandler}
             id="fullname"
-            className="font-semibold text-xl bg-[#2A2A2A] text-white p-2 outline-none "
+            className="w-full min-w-0 bg-[#2A2A2A] p-2 text-lg font-semibold text-white outline-none sm:w-auto sm:flex-1 sm:text-xl"
           />
         </div>
       </div>
 
-      <div className="grid md:grid-cols-3 md:gap-2 gap-3 my-10">
+      <div className="my-8 grid gap-3 sm:my-10 md:grid-cols-2 md:gap-4 lg:grid-cols-3">
         <div className="flex items-center gap-4 rounded-sm p-2">
           <CiMail className="text-gray-500 text-3xl" />
           <div className="w-full">

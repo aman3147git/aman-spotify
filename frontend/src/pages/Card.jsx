@@ -33,8 +33,9 @@ const Card = ({ song, onClick }) => {
 
      
       <button
+        type="button"
         onClick={handlePlayPause}
-        className="absolute bottom-16 right-2 bg-green-500 flex items-center justify-center rounded-full h-10 w-10 opacity-0 group-hover:opacity-100 transition-opacity"
+        className="absolute bottom-16 right-2 flex h-10 w-10 items-center justify-center rounded-full bg-green-500 opacity-100 transition-opacity md:opacity-0 md:group-hover:opacity-100"
       >
         
         {currentSongId === song._id && isPlaying ? (

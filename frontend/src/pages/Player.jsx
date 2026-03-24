@@ -113,7 +113,7 @@ const Player = () => {
 
   if (!currentSong) {
     return (
-      <div className="flex items-center justify-center m-4 bg-black text-white">
+      <div className="flex items-center justify-center bg-black px-4 py-6 text-sm text-white sm:text-base">
         Select a song to play!
       </div>
     );
@@ -141,59 +141,82 @@ const Player = () => {
 
 
   return (
-    <div className="flex items-center justify-between m-4 bg-black">
-      <div className="w-2/12">
-        <div className="flex items-center gap-2">
+    <div className="flex flex-col gap-3 border-t border-white/10 bg-black px-3 py-3 text-white sm:px-4 md:flex-row md:items-center md:justify-between md:gap-4 md:py-2 lg:px-6">
+      <div className="order-2 min-w-0 md:order-1 md:w-[28%] lg:w-1/4">
+        <div className="flex items-center gap-3">
           <img
             src={currentSong.imageUrl}
             alt={currentSong.title}
-            className="h-16 w-16 rounded-md"
+            className="h-12 w-12 shrink-0 rounded-md object-cover sm:h-14 sm:w-14 md:h-16 md:w-16"
           />
-          <div className="">
-            <h3 className="mb-1">{currentSong.title}</h3>
-            <p className="text-sm text-gray-400">{currentSong.artist}</p>
+          <div className="min-w-0">
+            <h3 className="truncate text-sm font-medium sm:text-base">{currentSong.title}</h3>
+            <p className="truncate text-xs text-gray-400 sm:text-sm">{currentSong.artist}</p>
           </div>
         </div>
       </div>
 
-      <div className="w-5/12">
-        <div className="flex justify-center items-center mb-2 gap-6">
-          <CiShuffle className={`text-2xl ${isShuffle ? 'text-red-500' : 'text-white'}`} onClick={handleShuffleToggle} />
-          <FaBackwardStep className="text-xl" onClick={handleBackward}/>
-          <button onClick={togglePlayPause} className="flex items-center rounded-full justify-center bg-white p-2">
+      <div className="order-1 w-full md:order-2 md:w-[44%] lg:w-5/12">
+        <div className="mb-2 flex items-center justify-center gap-4 sm:gap-6">
+          <CiShuffle className={`shrink-0 cursor-pointer text-xl sm:text-2xl ${isShuffle ? 'text-red-500' : 'text-white'}`} onClick={handleShuffleToggle} />
+          <FaBackwardStep className="shrink-0 cursor-pointer text-lg sm:text-xl" onClick={handleBackward}/>
+          <button type="button" onClick={togglePlayPause} className="flex shrink-0 items-center justify-center rounded-full bg-white p-2 hover:opacity-90">
             {isPlaying ? (
-              <IoMdPause className="text-black text-lg" />
+              <IoMdPause className="text-lg text-black sm:text-xl" />
             ) : (
-              <IoMdPlay className="text-black text-lg" />
+              <IoMdPlay className="text-lg text-black sm:text-xl" />
             )}
           </button>
-          <FaForwardStep className="text-xl" onClick={handleForward}/>
+          <FaForwardStep className="shrink-0 cursor-pointer text-lg sm:text-xl" onClick={handleForward}/>
 
-          <CiRepeat className={`text-2xl ${isRepeat ? 'text-red-500' : 'text-white'}`} onClick={handleRepeatToggle} />
+          <CiRepeat className={`shrink-0 cursor-pointer text-xl sm:text-2xl ${isRepeat ? 'text-red-500' : 'text-white'}`} onClick={handleRepeatToggle} />
         </div>
-        <div className="flex items-center text-sm gap-1">
-          <span>{formatTime(currentTime)}</span>
+        <div className="flex items-center gap-2 text-xs sm:text-sm">
+          <span className="w-10 shrink-0 tabular-nums text-gray-400">{formatTime(currentTime)}</span>
           <input
             type="range"
             min={0}
             max={100}
-            className="w-full block h-1"
+            className="h-1 w-full min-w-0 cursor-pointer accent-green-500"
             value={(currentTime / duration) * 100 || 0}
             onChange={handleSeek}
+            aria-label="Seek"
           />
-          <span>{formatTime(duration)}</span>
+          <span className="w-10 shrink-0 text-right tabular-nums text-gray-400">{formatTime(duration)}</span>
         </div>
       </div>
 
-      <div className="w-2/12 flex items-center gap-3">
-        <MdOutlineSmartDisplay className="text-2xl" />
-        <TbMicrophone2 className="text-2xl" />
-        <HiOutlineQueueList className="text-2xl" />
-        <TbDevices2 className="text-2xl" />
-        <RxSpeakerQuiet className="text-2xl" />
-        <input type="range" min={0} max={100} value={volume}
-          onChange={(e)=>setVolume(e.target.value)} className="w-1/2 block h-1" />
-        <PiSpeakerSimpleX className="text-2xl" />
+      <div className="order-3 hidden w-full items-center justify-end gap-2 md:flex md:w-[28%] lg:w-1/4">
+        <div className="hidden items-center gap-2 lg:flex">
+          <MdOutlineSmartDisplay className="text-2xl text-gray-300" />
+          <TbMicrophone2 className="text-2xl text-gray-300" />
+          <HiOutlineQueueList className="text-2xl text-gray-300" />
+          <TbDevices2 className="text-2xl text-gray-300" />
+          <RxSpeakerQuiet className="text-2xl text-gray-300" />
+        </div>
+        <input
+          type="range"
+          min={0}
+          max={100}
+          value={volume}
+          onChange={(e) => setVolume(e.target.value)}
+          className="h-1 w-24 max-w-full shrink-0 cursor-pointer accent-white sm:w-32"
+          aria-label="Volume"
+        />
+        <PiSpeakerSimpleX className="hidden text-2xl text-gray-300 xl:block" />
+      </div>
+
+      <div className="order-3 flex items-center justify-center gap-3 md:hidden">
+        <RxSpeakerQuiet className="text-xl text-gray-400" />
+        <input
+          type="range"
+          min={0}
+          max={100}
+          value={volume}
+          onChange={(e) => setVolume(e.target.value)}
+          className="h-1 w-full max-w-[200px] cursor-pointer accent-white"
+          aria-label="Volume"
+        />
       </div>
       <audio ref={audioRef} src={currentSong.audioUrl} onLoadedMetadata={handleLoadedMetadata}
         onTimeUpdate={handleTimeUpdate} onEnded={handleSongEnd}/>

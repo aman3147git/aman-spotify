@@ -44,26 +44,26 @@ const Search=()=>{
 
     if (data) {
         return (
-            <div style={{ padding: '20px' }}>
-                <h2>{data.title}</h2>
-                <p>{data.artist}</p>
-                {data.imageUrl && <img src={data.imageUrl} alt={data.title} style={{ maxWidth: '100%' }} />}
+            <div className="p-4 sm:p-6 text-white">
+                <h2 className="text-2xl font-bold sm:text-3xl">{data.title}</h2>
+                <p className="mt-2 text-gray-300">{data.artist}</p>
+                {data.imageUrl && <img src={data.imageUrl} alt={data.title} className="mt-4 w-full max-w-md rounded-lg object-cover" />}
                 {data.audioUrl && (
-                    <audio controls>
+                    <audio controls className="mt-4 w-full max-w-full">
                         <source src={data.audioUrl} type="audio/mpeg" />
                     </audio>
                 )}
-                {data.releaseYear && <p>Released: {data.releaseYear}</p>}
+                {data.releaseYear && <p className="mt-2 text-gray-400">Released: {data.releaseYear}</p>}
             </div>
         );
     }
 
     return (
-        <div className='flex  p-8 gap-[160px]'>
-          <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-8 p-4 sm:flex-row sm:gap-12 sm:p-6 lg:p-8">
+          <div className="flex min-w-0 flex-1 flex-col gap-2">
             {results.albums && (
                 <>
-                    <h3 className='text-white font-bold text-3xl'>Albums</h3>
+                    <h3 className="text-2xl font-bold text-white sm:text-3xl">Albums</h3>
                     {results.albums.map((album) => (
                         <div
                             key={album._id}
@@ -81,10 +81,10 @@ const Search=()=>{
                 </>
             )}
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex min-w-0 flex-1 flex-col gap-2">
             {results.songs && (
                 <>
-                    <h3 className='text-white font-bold text-3xl'>Songs</h3>
+                    <h3 className="text-2xl font-bold text-white sm:text-3xl">Songs</h3>
                     {results.songs.map((song) => (
                         <div
                             key={song._id}

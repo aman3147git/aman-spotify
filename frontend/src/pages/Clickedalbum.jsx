@@ -56,30 +56,32 @@ const Clickedalbum = () => {
     <div className="">
       {album ? (
         <div className="flex flex-col">
-          <div className="flex h-[220px] bg-gradient-to-r from-blue-900 to-slate-300">
-            <div className="pl-5 pt-12 flex gap-3">
-              <div className="">
+          <div className="min-h-0 bg-gradient-to-r from-blue-900 to-slate-300 px-4 pb-8 pt-8 sm:min-h-[220px] sm:px-6 sm:pb-12 sm:pt-12">
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:gap-6">
+              <div className="shrink-0">
                 <img
                   src={album.imageUrl}
                   alt={album.artist}
-                  className="w-[170px] h-[170px] object-cover rounded-lg hover:scale-105"
+                  className="h-36 w-36 rounded-lg object-cover shadow-lg hover:scale-105 sm:h-[170px] sm:w-[170px]"
                 />
               </div>
-              <div className="">
-                <h1 className="text-white text-6xl font-bold mt-14">
+              <div className="min-w-0 flex-1 sm:mt-10">
+                <h1 className="break-words text-3xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
                   {album.title}
                 </h1>
-                <div className="flex gap-1">
-                <p className="text-white text-lg mt-2">{album.artist} .</p>
-                <p className="text-white text-lg mt-2">{album.releaseYear}</p>
+                <div className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                <p className="text-base text-white sm:text-lg">{album.artist}</p>
+                <span className="hidden text-white sm:inline">·</span>
+                <p className="text-base text-white/90 sm:text-lg">{album.releaseYear}</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="bg-gradient-to-bl from-white to-gray-600 p-5">
-            <h2 className="text-2xl font-bold mb-4">Songs</h2>
+          <div className="bg-gradient-to-bl from-white to-gray-600 p-4 sm:p-5">
+            <h2 className="mb-4 text-xl font-bold sm:text-2xl">Songs</h2>
             {album.songs && album.songs.length > 0 ? (
-              <table className="w-full text-left">
+              <div className="-mx-4 overflow-x-auto sm:mx-0">
+              <table className="w-full min-w-[480px] text-left">
                 <thead>
                   <tr className="border-b border-gray-700">
                     <th className="py-2 px-4">#</th>
@@ -114,6 +116,7 @@ const Clickedalbum = () => {
                   ))}
                 </tbody>
               </table>
+              </div>
             ) : (
               <p className="text-black">No songs available in this album.</p>
             )}
