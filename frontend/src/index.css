@@ -10,18 +10,3 @@
     @apply overflow-x-hidden;
   }
 }
-
-
-::-webkit-scrollbar {
-    width: 16px; 
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: transparent; 
-    
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: transparent; 
-  }
-  

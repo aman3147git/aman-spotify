@@ -44,8 +44,8 @@ const LeftSide = () => {
   }
   return (
     
-      <div className="mx-0 flex max-h-[42vh] w-full shrink-0 flex-col overflow-hidden rounded-lg bg-mycolor md:mx-2 md:h-[calc(100dvh-11.5rem)] md:max-h-none md:w-[285px]">
-        <div className="flex flex-shrink-0 items-center justify-between p-4 text-gray-400 sm:p-5">
+      <div className="mx-0 flex min-h-0 w-full shrink-0 flex-col overflow-hidden rounded-lg bg-mycolor max-h-[min(50vh,440px)] md:mx-2 md:h-full md:max-h-none md:w-[285px]">
+        <div className="flex shrink-0 items-center justify-between p-4 text-gray-400 sm:p-5">
           <div className="relative group w-fit">
             <div className="flex gap-2 hover:text-white">
               <BiLibrary className="text-2xl" />
@@ -64,7 +64,7 @@ const LeftSide = () => {
         </div>
 
         {user ? (
-          <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto overscroll-contain p-4">
+          <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto overscroll-contain p-4 md:h-[406px] md:flex-none md:overflow-y-scroll">
             {Array.isArray(albumsData) && albumsData.length > 0 && albumsData.map((item, index) => (
               <div
                 onClick={()=>handleAlbum(item._id)}
@@ -80,60 +80,55 @@ const LeftSide = () => {
             ))}
           </div>
         ) : (
-          <div className="flex max-h-48 flex-col gap-6 overflow-y-auto overscroll-contain p-4 sm:max-h-none">
+          <div className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto overscroll-contain p-4 md:h-[406px] md:flex-none md:overflow-y-scroll">
             {list.map((item, index) => (
               <div
                 key={index}
-                className="bg-[#313131] rounded-lg flex flex-col  p-4 "
+                className="flex flex-col rounded-lg bg-[#313131]  p-4 "
               >
-                <h1 className="font-bold text-white mt-2">{item.title}</h1>
-                <p className="font-md text-white text-sm">{item.description}</p>
-                <button className="bg-white py-2 text-black font-semibold rounded-full my-2 hover:scale-105">
+                <h1 className="mt-2 font-bold text-white">{item.title}</h1>
+                <p className="font-md text-sm text-white">{item.description}</p>
+                <button className="my-2 rounded-full bg-white py-2 font-semibold text-black hover:scale-105">
                   {item.press}
                 </button>
               </div>
             ))}
-          </div>
-        )}
-
-        {user ? (
-          ""
-        ) : (
-          <div className="flex flex-col text-gray-300 mt-8 mx-6">
-            <div className="flex gap-2">
+            <div className="mx-2 flex flex-col text-gray-300">
+              <div className="flex gap-2">
+                <Link
+                  to="https://www.spotify.com/in-en/legal/end-user-agreement/"
+                  className="text-sm text-gray-400"
+                >
+                  Legal
+                </Link>
+                <Link to="" className="text-sm text-gray-400">
+                  Safety&Privacy Center
+                </Link>
+              </div>
+              <br />
+              <div className="flex gap-2">
+                <Link to="" className="text-sm text-gray-400">
+                  Privacy Policy
+                </Link>
+                <Link to="" className="text-sm text-gray-400">
+                  Cookies
+                </Link>
+                <Link to="" className="text-sm text-gray-400">
+                  About Ads
+                </Link>
+              </div>
+              <br />
+              <Link to="" className="text-sm text-gray-400">
+                Accessibility
+              </Link>
+              <br />
               <Link
-                to="https://www.spotify.com/in-en/legal/end-user-agreement/"
-                className="text-gray-400 text-sm"
+                to="https://www.spotify.com/in-en/legal/cookies-policy/"
+                className="text-sm text-white hover:underline"
               >
-                Legal
-              </Link>
-              <Link to="" className="text-gray-400 text-sm">
-                Safety&Privacy Center
-              </Link>
-            </div>
-            <br />
-            <div className="flex gap-2">
-              <Link to="" className="text-gray-400 text-sm">
-                Privacy Policy
-              </Link>
-              <Link to="" className="text-gray-400 text-sm">
                 Cookies
               </Link>
-              <Link to="" className="text-gray-400 text-sm">
-                About Ads
-              </Link>
             </div>
-            <br />
-            <Link to="" className="text-gray-400 text-sm">
-              Accessibility
-            </Link>
-            <br />
-            <Link
-              to="https://www.spotify.com/in-en/legal/cookies-policy/"
-              className="text-white text-sm hover:underline"
-            >
-              Cookies
-            </Link>
           </div>
         )}
       </div>

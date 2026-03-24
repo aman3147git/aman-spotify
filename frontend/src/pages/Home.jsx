@@ -20,10 +20,11 @@ const Home = () => {
     
     <div className="bg-black min-h-dvh flex flex-col">
       <Navbar />
-      <div className="flex flex-1 flex-col min-h-0 gap-2 px-2 pb-2 md:flex-row md:px-2">
+      {/* md: fixed 470px row = internal vertical scroll in sidebar + main (original behavior) */}
+      <div className="flex min-h-0 flex-1 flex-col gap-2 px-2 pb-2 md:h-[470px] md:flex-none md:flex-row md:px-2">
         <LeftSide />
 
-        <div className="min-h-[240px] flex-1 overflow-y-auto overscroll-contain rounded-lg bg-mycolor md:mr-2 md:min-h-0">
+        <div className="flex-1 min-h-[220px] overflow-y-auto overscroll-contain rounded-lg bg-mycolor md:mr-2 md:h-full md:min-h-0 md:flex-1">
         <Outlet context={{ user }} />
         </div>
       </div>
